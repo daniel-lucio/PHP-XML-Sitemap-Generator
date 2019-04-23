@@ -14,7 +14,7 @@
 
 	// Set the start URL. Here is http used, use https:// for 
 	// SSL websites.
-	$start_url = "http://iprodev.com/";       
+	$start_url = "https://jobs.katapulta.network/";       
 
 	// Set true or false to define how the script is used.
 	// true:  As CLI script.
@@ -26,7 +26,7 @@
 	// Example: "http://iprodev.com/print" will also skip
 	// http://iprodev.com/print/bootmanager.html
 	$skip = array (
-					"http://iprodev.com/print/",
+					"https://jobs.katapulta.network/employer-controlpanel.html",
 				  );
 
 	// Define what file types should be scanned.
@@ -79,7 +79,7 @@
 		curl_setopt ($ch, CURLOPT_AUTOREFERER, true);
 		curl_setopt ($ch, CURLOPT_URL, $url);
 		curl_setopt ($ch, CURLOPT_USERAGENT, $agent);
-		curl_setopt ($ch, CURLOPT_VERBOSE, 1);
+		curl_setopt ($ch, CURLOPT_VERBOSE, 0);
 		curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 		curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
 		curl_setopt ($ch, CURLOPT_HEADER, 0);
