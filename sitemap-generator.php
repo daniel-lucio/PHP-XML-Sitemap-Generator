@@ -8,6 +8,11 @@
 
 *************************************************************/
 	require_once "simple_html_dom.php";
+	require_once "getoptreq.php";
+
+	$short_opts = 'f:u:';
+	$long_opts =  array('exclude:', 'frequency:', 'priority:');
+	$opts = getoptreq($short_opts, $long_opts);
 
 	// Set the output file name.
 	$file = "sitemap.xml";
@@ -19,7 +24,12 @@
 	// Set true or false to define how the script is used.
 	// true:  As CLI script.
 	// false: As Website script.
-	define ('CLI', true);
+	if (PHP_SAPI === 'cli' || empty($_SERVER['REMOTE_ADDR'])){  // command line
+		define ('CLI', true);
+	}
+	else{
+		define ('CLI', false);
+	}
 
 	// Define here the URLs to skip. All URLs that start with 
 	// the defined URL will be skipped too.
