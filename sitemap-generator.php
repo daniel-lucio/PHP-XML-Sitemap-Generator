@@ -15,11 +15,11 @@
 	$opts = getoptreq($short_opts, $long_opts);
 
 	// Set the output file name.
-	$file = "sitemap.xml";
+	$file = isset($opts['f'])?$opts['f']:"sitemap.xml";
 
 	// Set the start URL. Here is http used, use https:// for 
 	// SSL websites.
-	$start_url = "https://jobs.katapulta.network/";       
+	$start_url = isset($opts['u'])?$opts['u']:"https://jobs.katapulta.network/";       
 
 	// Set true or false to define how the script is used.
 	// true:  As CLI script.
@@ -47,10 +47,10 @@
 					   ); 
 
 	// Scan frequency
-	$freq = "daily";
+	$freq = isset($opts['frequency'])?$opts['frequency']:"daily";
 
 	// Page priority
-	$priority = "1.0";
+	$priority = isset($opts['priority'])?$opts['priority']:"1.0";
 
 	// Init end ==========================
 
